@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galdino</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background-image: url("a-noite-estrelada-van-gogh.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Texto central */
+    .mensagem {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      max-width: 700px;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      color: white;
+      text-align: center;
+      z-index: 5;
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    }
+
+    .mensagem h1 {
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .mensagem p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Fotos */
+    .foto {
+      position: absolute;
+      width: 12vw;
+      max-width: 160px;
+      min-width: 90px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      transition: transform 0.3s;
+    }
+
+    .foto:hover {
+      transform: scale(1.1);
+      z-index: 10;
+    }
+
+    @media (max-width: 600px) {
+      .mensagem h1 {
+        font-size: 1.3rem;
+      }
+      .mensagem p {
+        font-size: 0.9rem;
+      }
+      .foto {
+        width: 22vw;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="mensagem">
+    <h1>💖 Feliz Dia de São Valentim 💖</h1>
+    <p>
+      Os melhores momentos da minha vida são os que eu passei ao seu lado! 
+      Você é a minha inspiração diária, você é meu primeiro pensamento do dia 
+      e o meu último da noite! Você é a melhor namorada que eu poderia pedir. 
+      Você é uma garota forte, inteligente, incrível, linda, eu sou grato por ter você no meu coração! 
+      Eu te amo, Laura Galdino, ou melhor, <strong>MEU BEM!</strong>
+    </p>
+  </div>
+
+  <img src="ft1.jpg" class="foto">
+  <img src="ft2.jpg" class="foto">
+  <img src="ft3.jpg" class="foto">
+  <img src="ft4.jpg" class="foto">
+  <img src="ft5.jpg" class="foto">
+  <img src="ft6.jpg" class="foto">
+  <img src="ft7.jpg" class="foto">
+  <img src="ft8.jpg" class="foto">
+
+  <script>
+    function espalharFotos() {
+      const fotos = document.querySelectorAll('.foto');
+
+      fotos.forEach(foto => {
+        const tamanho = foto.offsetWidth;
+        const larguraTela = window.innerWidth - tamanho;
+        const alturaTela = window.innerHeight - tamanho;
+
+        const randomX = Math.random() * larguraTela;
+        const randomY = Math.random() * alturaTela;
+        const randomRotate = Math.random() * 40 - 20;
+
+        foto.style.left = randomX + "px";
+        foto.style.top = randomY + "px";
+        foto.style.transform = "rotate(" + randomRotate + "deg)";
+      });
+    }
+
+    window.onload = espalharFotos;
+    window.onresize = espalharFotos;
+  </script>
+
+</body>
+</html>
